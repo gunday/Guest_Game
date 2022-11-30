@@ -13,7 +13,7 @@ def jogar():
     enforcou = False
     acertou = False
 
-    tentativas = int(len(palavra_secreta) + 2)
+    tentativas = 7
     erros = 0
 
     print(letras_acertadas_list)
@@ -32,6 +32,7 @@ def jogar():
         else:
             erros += 1
             print("Errou {} de {}.".format(erros, tentativas))
+            desenha_forca(erros)
 
         if "_" not in letras_acertadas_list:
             acertou = True
@@ -70,6 +71,57 @@ def load_secret_word():
     numero = random.randrange(0, len(palavras))
     palavra_secreta = palavras[numero].upper()
     return palavra_secreta
+
+
+def desenha_forca(erros):
+    print("  _______     ")
+    print(" |/      |    ")
+
+    if erros == 1:
+        print(" |      (_)   ")
+        print(" |            ")
+        print(" |            ")
+        print(" |            ")
+
+    if erros == 2:
+        print(" |      (_)   ")
+        print(" |      \     ")
+        print(" |            ")
+        print(" |            ")
+
+    if erros == 3:
+        print(" |      (_)   ")
+        print(" |      \|    ")
+        print(" |            ")
+        print(" |            ")
+
+    if erros == 4:
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |            ")
+        print(" |            ")
+
+    if erros == 5:
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |            ")
+
+    if erros == 6:
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      /     ")
+
+    if erros == 7:
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      / \   ")
+
+    print(" |            ")
+    print("_|___         ")
+    print()
 
 
 def imprime_mensagem_perdedor(palavra_secreta):
